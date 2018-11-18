@@ -4,10 +4,6 @@ class Form extends React.Component{
 
     constructor(props){
         super(props);
-        this.state={
-            name:'',
-            quantity:0
-        };
 
         this.handleQuantityChange = this.handleQuantityChange.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
@@ -15,32 +11,26 @@ class Form extends React.Component{
 
     handleQuantityChange = (event) => {
         let quantity = event.target.value;
-
-        this.setState(state => ({
-            quantity: quantity
-        }))
+        this.props.onQuantityChange(quantity);
     };
 
     handleNameChange = (event) => {
         let name = event.target.value;
-
-        this.setState(state => ({
-            name: name
-        }))
+        this.props.onNameChange(name);
     };
 
     handleSubmit = (event) => {
-        console.log(this.state);
+        this.props.addArticle();
         event.preventDefault();
     };
 
     render(){
         return(
             <div>
-                <h3>Ajouter des articles à acheter</h3>
+                <h3>{this.props.formTitle}</h3>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="number" placeholder="quantité" value={this.state.quantity} onChange= {this.handleQuantityChange}/>
-                    <input type="text" placeholder="article" value={this.state.name} onChange= {this.handleNameChange}/>
+                    <input type="number" placeholder="quantité" value={this.props.quantity} onChange= {this.handleQuantityChange}/>
+                    <input type="text" placeholder="article" value={this.props.name} onChange= {this.handleNameChange}/>
                     <button type="submit">Ajouter</button>
                 </form>
             </div>
