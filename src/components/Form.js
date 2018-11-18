@@ -27,11 +27,19 @@ class Form extends React.Component{
     render(){
         return(
             <div>
-                <h3>{this.props.formTitle}</h3>
+                <h3 className="text-center">{this.props.formTitle}</h3>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="number" placeholder="quantité" value={this.props.quantity} onChange= {this.handleQuantityChange}/>
-                    <input type="text" placeholder="article" value={this.props.name} onChange= {this.handleNameChange}/>
-                    <button type="submit">Ajouter</button>
+                    <div className="row">
+                        <div className="col-lg-3, offset-lg-4">
+                            <input type="number" placeholder="quantité" value={this.props.quantity} onChange= {this.handleQuantityChange}/>
+                        </div>
+                        <div className="col-lg-3">
+                            <input type="text" placeholder="article" value={this.props.name} onChange= {this.handleNameChange}/>
+                        </div>
+                        <div>
+                            <button className="btn btn-light" type="submit">Ajouter</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         );

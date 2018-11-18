@@ -46,10 +46,14 @@ class App extends React.Component {
 
         let name = this.state.article.name;
         let quantity = this.state.article.quantity;
+        let articles = this.state.articles;
 
         return(
             <div>
-                <h3>Liste de courses</h3>
+                <div className="col-lg-12, jumbotron">
+                    <h3 className="text-center">Réalisez votre liste de courses</h3>
+                </div>
+
                 <Form
                     formTitle="Ajouter un article"
                     name={name}
@@ -58,7 +62,9 @@ class App extends React.Component {
                     onQuantityChange={this.onQuantityChange}
                     onNameChange={this.onNameChange}
                 />
-                <ItemList/>
+                <ItemList
+                    itemListTitle="Liste de courses"
+                    articles={articles}/>
             </div>
         );
     }
