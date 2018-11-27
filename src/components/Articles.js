@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from './Form'
+import VisibleForm from '../containers/VisibleForm'
 import ItemList from "./ItemList";
 
 class Articles extends React.Component {
@@ -12,11 +12,8 @@ class Articles extends React.Component {
                     <h3 className="text-center">Réalisez votre liste de courses</h3>
                 </div>
 
-                <Form
+                <VisibleForm
                     formTitle="Ajouter un article"
-                    article={this.props.article}
-                    addArticle={this.props.addArticle}
-                    onArticleChange={this.props.setArticle}
                 />
 
                 <ItemList

@@ -12,13 +12,13 @@ class Form extends React.Component{
     handleQuantityChange = (event) => {
         let tempQuantity = event.target.value;
         let tempArticle = {...this.props.article, quantity:tempQuantity}
-        this.props.onArticleChange(tempArticle);
+        this.props.setArticle(tempArticle);
     };
 
     handleNameChange = (event) => {
         let tempName = event.target.value;
         let tempArticle = {...this.props.article, name:tempName}
-        this.props.onArticleChange(tempArticle);
+        this.props.setArticle(tempArticle);
     };
 
     handleSubmit = (event) => {
