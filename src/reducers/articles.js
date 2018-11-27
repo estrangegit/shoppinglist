@@ -17,28 +17,11 @@ const articlesReducer = (state = {article:{id:'', name:'', quantity:0, isInEditM
                 article: emptyArticle,
                 articles: [...state.articles, {id:id, name:state.article.name, quantity:state.article.quantity, isInEditMode: false}]
             };
-        case 'SET_NAME':
-
+        case 'SET_ARTICLE':
             return {
-                    article:{
-                        id:'',
-                        name: action.name,
-                        quantity: state.article.quantity,
-                        isInEditMode: state.article.isInEditMode
-                    },
+                    article: action.article,
                     articles: state.articles};
-        case 'SET_QUANTITY':
-
-            return {
-                    article:{
-                        id:'',
-                        name: state.article.name,
-                        quantity: action.quantity,
-                        isInEditMode: state.article.isInEditMode
-                    },
-                    articles: state.articles};
-
-        case 'TOGGLE_MODE':
+        case 'TOGGLE_EDIT_MODE':
                 return {
                     article: state.article,
                     articles: state.articles
@@ -48,27 +31,21 @@ const articlesReducer = (state = {article:{id:'', name:'', quantity:0, isInEditM
                                                 : article
                                         )   
                 }
-        case 'EDIT_NAME':
+        case 'EDIT_ARTICLE':
                 return {
                     article: state.article,
                     articles: state.articles
                                     .map(article => 
-                                            (article.id === action.id) ?
-                                                 {...article, name: action.name}
+                                            (article.id === action.article.id) ?
+                                                 {
+                                                    ...article,
+                                                    name: action.article.name,
+                                                    quantity:action.article.quantity,
+                                                    isInEditMode:action.article.isInEditMode
+                                                }
                                                  : article
                                         )
-                }                
-        case 'EDIT_QUANTITY':
-                return {
-                    article: state.article,
-                    articles: state.articles
-                                    .map(article => 
-                                            (article.id === action.id) ?
-                                                {...article, quantity: action.quantity}
-                                                : article
-                                        )
                 }
-
         default:
             return state
     }

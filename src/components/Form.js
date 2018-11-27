@@ -10,13 +10,15 @@ class Form extends React.Component{
     }
 
     handleQuantityChange = (event) => {
-        let quantity = event.target.value;
-        this.props.onQuantityChange(quantity);
+        let tempQuantity = event.target.value;
+        let tempArticle = {...this.props.article, quantity:tempQuantity}
+        this.props.onArticleChange(tempArticle);
     };
 
     handleNameChange = (event) => {
-        let name = event.target.value;
-        this.props.onNameChange(name);
+        let tempName = event.target.value;
+        let tempArticle = {...this.props.article, name:tempName}
+        this.props.onArticleChange(tempArticle);
     };
 
     handleSubmit = (event) => {
@@ -31,10 +33,10 @@ class Form extends React.Component{
                 <form onSubmit={this.handleSubmit}>
                     <div className="row">
                         <div className="col-lg-3, offset-lg-4">
-                            <input type="number" placeholder="quantité" value={this.props.quantity} onChange= {this.handleQuantityChange}/>
+                            <input type="number" placeholder="quantité" value={this.props.article.quantity} onChange= {this.handleQuantityChange}/>
                         </div>
                         <div className="col-lg-3">
-                            <input type="text" placeholder="article" value={this.props.name} onChange= {this.handleNameChange}/>
+                            <input type="text" placeholder="article" value={this.props.article.name} onChange= {this.handleNameChange}/>
                         </div>
                         <div>
                             <button className="btn btn-light" type="submit">Ajouter</button>

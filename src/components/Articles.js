@@ -14,11 +14,9 @@ class Articles extends React.Component {
 
                 <Form
                     formTitle="Ajouter un article"
-                    name={this.props.article.name}
-                    quantity={this.props.article.quantity}
+                    article={this.props.article}
                     addArticle={this.props.addArticle}
-                    onQuantityChange={this.props.setQuantity}
-                    onNameChange={this.props.setName}
+                    onArticleChange={this.props.setArticle}
                 />
 
                 <ItemList

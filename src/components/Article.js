@@ -10,17 +10,17 @@ class Article extends React.Component {
     }
 
     handleQuantityEdit = (event) => {
-        let id = this.props.article.id;
-        let quantity = event.target.value;
+        let newQuantity = event.target.value;
+        let newArticle = { ...this.props.article, quantity:newQuantity }
 
-        this.props.editQuantity(id, quantity);
+        this.props.editArticle(newArticle);
     };
 
     handleNameEdit = (event) => {
-        let id = this.props.article.id;
-        let name = event.target.value;
+        let newName = event.target.value;
+        let newArticle = { ...this.props.article, name:newName }
 
-        this.props.editName(id, name);
+        this.props.editArticle(newArticle);
     };
 
     render(){

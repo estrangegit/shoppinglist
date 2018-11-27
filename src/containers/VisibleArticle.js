@@ -1,6 +1,5 @@
 import {toggleEditMode} from '../actions';
-import {editName} from '../actions';
-import {editQuantity} from '../actions';
+import {editArticle} from '../actions';
 import { connect } from 'react-redux';
 import Article from '../components/Article';
 
@@ -10,8 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
     toggleEditMode: id => dispatch(toggleEditMode(id)),
-    editName: (id, name) => dispatch(editName(id, name)),
-    editQuantity: (id, quantity) => dispatch(editQuantity(id, quantity))
+    editArticle: (article) => dispatch(editArticle(article)),
 });
 
 export default connect(

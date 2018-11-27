@@ -1,6 +1,5 @@
 import {addArticle} from '../actions';
-import {setName} from '../actions';
-import {setQuantity} from '../actions';
+import {setArticle} from '../actions';
 import { connect } from 'react-redux'
 import Articles from '../components/Articles';
 
@@ -10,8 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    setName: name => dispatch(setName(name)),
-    setQuantity: quantity => dispatch(setQuantity(quantity)),
+    setArticle: article => dispatch(setArticle(article)),
     addArticle: () => dispatch(addArticle())
 });
 
