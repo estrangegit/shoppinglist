@@ -1,4 +1,5 @@
 import React from 'react';
+import VisibleArticle from '../containers/VisibleArticle'
 
 const ItemList = (props) => {
 
@@ -6,12 +7,13 @@ const ItemList = (props) => {
       <div>
           <h4 className="text-center">{props.itemListTitle}</h4>
           <div>
+              
               {props.articles.map((article) =>
-                  <div className="card" key={article.id}>
-                      <div className="card-body text-center">
-                          {article.quantity} x {article.name}
-                      </div>
-                  </div>
+                <div className="card" key={article.id}>
+                    <div className="card-body text-center">
+                        <VisibleArticle id={article.id} />              
+                    </div>
+                </div>
               )}
           </div>
       </div>

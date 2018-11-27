@@ -23,8 +23,8 @@ class Articles extends React.Component {
 
                 <ItemList
                     itemListTitle="Liste de courses"
-                    articles={this.props.articles}/>
-
+                    articles={this.props.articles}
+                />
             </div>
         );
     }
